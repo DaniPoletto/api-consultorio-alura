@@ -65,6 +65,11 @@ Retornando uma resposta:
     }
 ```
 
+Retornando uma resposta em Json:
+```
+   return new JsonResponse($medico);
+```
+
 ### Para pegar parametros:
 
 - pega um parametro especifico da query string
