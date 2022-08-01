@@ -37,7 +37,7 @@ Para retornar em JSON
     }
 ```
 
-O método do controller recebe uma Requisição (Request) e uma resposta (Response) que são classes que devem ser importadas na classe do Controller.
+O método do controller recebe uma Requisição HTTP (Request) e uma resposta HTTP (Response) que são classes que devem ser importadas na classe do Controller.
 ```
     /**
      * @Route("/ola")
@@ -52,11 +52,14 @@ O método do controller recebe uma Requisição (Request) e uma resposta (Respon
     }
 ```
 
-Para pegar parametros da query string
+Para pegar parametros:
 ```
-//pega um parametro especifico
+//pega um parametro especifico da query string
 $parametro = $request->query->get('parametro');
 
-//pega todos os parametros
+//pega todos os parametros da query string
 $parametros = $request->query->all();
+
+//pegar parametros de uma forma genérica
+$parametro1 = $request->get('parametro')
 ```
