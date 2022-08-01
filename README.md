@@ -26,7 +26,7 @@ Exemplo: A rota /ola executa o método olaMundoAction() que faz parte de uma cla
     }
 ```
 
-Para retornar em JSON
+### Para retornar em JSON
 ```
     /**
      * @Route("/ola")
@@ -37,6 +37,7 @@ Para retornar em JSON
     }
 ```
 
+### Request e Response
 O método do controller recebe uma Requisição HTTP (Request) e uma resposta HTTP (Response) que são classes que devem ser importadas na classe do Controller.
 ```
     /**
@@ -52,14 +53,29 @@ O método do controller recebe uma Requisição HTTP (Request) e uma resposta HT
     }
 ```
 
-Para pegar parametros:
+### Para pegar parametros:
+
+- pega um parametro especifico da query string
 ```
-//pega um parametro especifico da query string
 $parametro = $request->query->get('parametro');
+```
 
-//pega todos os parametros da query string
+- pega todos os parametros da query string
+```
 $parametros = $request->query->all();
+```
 
-//pegar parametros de uma forma genérica
+- pegar parametros de uma forma genérica
+```
 $parametro1 = $request->get('parametro')
+```
+
+- pegar parametro definido na URL da rota
+```
+$parametro1 = $request->attributes->get('parametro')
+```
+
+- pegar parametro do corpo da requisição
+```
+$parametro1 = $request->request->get('parametro')
 ```
