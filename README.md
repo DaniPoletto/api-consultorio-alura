@@ -118,7 +118,7 @@ composer require symfony/orm-pack
 
 ### Criando o banco
 ```
-php bin\console doctrine:datatbase:create
+php bin\console doctrine:database:create
 ```
 
 
