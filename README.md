@@ -79,3 +79,5 @@ $parametro1 = $request->attributes->get('parametro')
 ```
 $parametro1 = $request->request->get('parametro')
 ```
+
+[Mais informações](https://symfony.com/doc/current/components/http_foundation.html)
