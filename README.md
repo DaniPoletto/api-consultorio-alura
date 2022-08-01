@@ -81,3 +81,8 @@ $parametro1 = $request->request->get('parametro')
 ```
 
 [Mais informações](https://symfony.com/doc/current/components/http_foundation.html)
+
+### Retornar o corpo da requisição
+```
+$corpoRequisicao = $request->getContent();
+```
