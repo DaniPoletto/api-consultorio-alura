@@ -1,5 +1,5 @@
 # API Consultório Alura
-Projeto implementado durante curso de API com Symfony
+Projeto implementado durante curso de API com Symfony 5.4 e PHP 7.3.5
 
 [Documentação do Symfony](https://symfony.com/doc/5.4/setup.html)
 
@@ -8,3 +8,18 @@ Projeto implementado durante curso de API com Symfony
 
 ### Para inicializar o servidor
 `` php -S localhost:8080 -t public ``
+
+### Para instalar o pacote de anotações
+``composer require annotation``
+
+Automaticamente anotações serão interpretadas como rotas. Exemplo: A rota /ola executa o método olaMundoAction
+```
+    /**
+     * @Route("/ola")
+     */
+    public function olaMundoAction ()
+    {
+        echo 'Olá , mundo!';
+        exit();
+    }
+```
