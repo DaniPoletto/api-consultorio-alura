@@ -53,6 +53,18 @@ O método do controller recebe uma Requisição HTTP (Request) e uma resposta HT
     }
 ```
 
+Retornando uma resposta:
+```
+    /**
+     * @Route("/medicos")
+     */
+    public function novo(Request $request) : Response
+    {
+        $corpoRequisicao = $request->getContent();
+        return new Response($corpoRequisicao);
+    }
+```
+
 ### Para pegar parametros:
 
 - pega um parametro especifico da query string
