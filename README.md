@@ -54,5 +54,9 @@ O método do controller recebe uma Requisição (Request) e uma resposta (Respon
 
 Para pegar parametros da query string
 ```
+//pega um parametro especifico
 $parametro = $request->query->get('parametro');
+
+//pega todos os parametros
+$parametros = $request->query->all();
 ```
