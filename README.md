@@ -36,3 +36,18 @@ Para retornar em JSON
         return new JsonResponse(['mensagem' => 'Olá, mundo!']);
     }
 ```
+
+O método do controller recebe uma Requisição (Request) e uma resposta (Response) que são classes que devem ser importadas na classe do Controller.
+```
+    /**
+     * @Route("/ola")
+     */
+    public function olaMundoAction (Request $request) : Response
+    {
+        $pathInfo = $request->getPathInfo();
+        return new JsonResponse([
+            'mensagem' => 'Olá, mundo!',
+            'pathInfo' => $pathInfo
+        ]);
+    }
+```
