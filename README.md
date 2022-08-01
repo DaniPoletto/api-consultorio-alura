@@ -110,3 +110,10 @@ $parametro1 = $request->request->get('parametro')
 ```
 $corpoRequisicao = $request->getContent();
 ```
+
+### Instalando pacote de ORM
+```
+composer require symfony/orm-pack
+```
+
+
