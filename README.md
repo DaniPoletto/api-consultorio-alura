@@ -51,3 +51,8 @@ O método do controller recebe uma Requisição (Request) e uma resposta (Respon
         ]);
     }
 ```
+
+Para pegar parametros da query string
+```
+$parametro = $request->query->get('parametro');
+```
