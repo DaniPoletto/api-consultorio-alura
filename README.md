@@ -121,4 +121,8 @@ composer require symfony/orm-pack
 php bin\console doctrine:database:create
 ```
 
+Antes é preciso alterar as configurações no arquivo .ENV
+
+
+
 
