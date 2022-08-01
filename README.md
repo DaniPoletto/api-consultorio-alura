@@ -13,6 +13,7 @@ Projeto implementado durante curso de API com Symfony 5.4 e PHP 7.3.5
 ``composer require annotation``
 
 Automaticamente anotações serão interpretadas como rotas. 
+
 Exemplo: A rota /ola executa o método olaMundoAction() que faz parte de uma classe criada na pasta de Controller.
 ```
     /**
