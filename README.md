@@ -111,9 +111,14 @@ $parametro1 = $request->request->get('parametro')
 $corpoRequisicao = $request->getContent();
 ```
 
-### Instalando pacote de ORM
+### Instalando pacote de ORM (Doctrine)
 ```
 composer require symfony/orm-pack
+```
+
+### Criando o banco
+```
+php bin\console doctrine:datatbase:create
 ```
 
 
