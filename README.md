@@ -25,3 +25,14 @@ Exemplo: A rota /ola executa o método olaMundoAction() que faz parte de uma cla
         exit();
     }
 ```
+
+Para retornar em JSON
+```
+    /**
+     * @Route("/ola")
+     */
+    public function olaMundoAction ()
+    {
+        return new JsonResponse(['mensagem' => 'Olá, mundo!']);
+    }
+```
