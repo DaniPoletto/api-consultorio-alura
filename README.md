@@ -26,6 +26,13 @@ Exemplo: A rota /ola executa o método olaMundoAction() que faz parte de uma cla
     }
 ```
 
+Para informar os métodos permitidos por essa rota
+```
+    /**
+     * @Route("/medicos", methods={"POST"})
+     */
+```
+
 ### Para retornar em JSON
 ```
     /**
