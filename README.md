@@ -187,3 +187,13 @@ php bin\console doctrine:migrations:migrate
 
 [Mais informações/resumos sobre doctrine](https://github.com/DaniPoletto/doctrine)
 
+### Repositórios
+Para utilizar repositórios é preciso fazer a classe de controller extender a classe AbstractController que é do próprio Symfony.
+```
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
+class MedicosController extends AbstractController
+{
+    ...
+```
+
