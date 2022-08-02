@@ -58,8 +58,13 @@ class MedicosController extends AbstractController
 
     public function buscaMedico(int $id) 
     {
-        $repositorioDeMedicos = $this->getDoctrine()->getRepository(Medico::class);
-        $medico = $repositorioDeMedicos->find($id);
+        $medico = $this->getDoctrine()->getRepository(Medico::class)->find($id);
+        return $medico;
+    }
+
+    public function buscaMedicoReference(int $id)
+    {
+        $medico = $this->entityManager->getReference(Medico::class, $id);
         return $medico;
     }
 
@@ -102,7 +107,7 @@ class MedicosController extends AbstractController
      */
     public function remove(int $id) : Response
     {
-        $medico = $this->buscaMedico($id);
+        $medico = $this->buscaMedicoReference($id);
         $this->entityManager->remove($medico);
         $this->entityManager->flush();
 
