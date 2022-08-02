@@ -130,5 +130,11 @@ Inclua o código ao arquivo config/services.yaml
 public: true
 ```
 
+### Gerar migration verificando se há diferenças entre o banco e o que foi mapeado para atualizar o banco
+```
+php bin\console doctrine:migrations:diff
+```
+
+[Mais informações/resumos sobre doctrine](https://github.com/DaniPoletto/doctrine)
 
 
