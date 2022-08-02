@@ -124,5 +124,11 @@ php bin\console doctrine:database:create
 Antes é preciso alterar as configurações no arquivo .ENV
 
 
+### Erro 'The controller for URI "/medicos" is not callable'
+Inclua o código ao arquivo config/services.yaml
+```
+public: true
+```
+
 
 
