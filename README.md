@@ -173,6 +173,8 @@ As alterações são mapeadas em memória otimizando a performance da aplicaçã
         $this->entityManager->flush();
 ```
 
+Caso a entidade seja obtida por meio do repositório, não há necessidade de usar o método persist pois o doctrine já 'observa' automaticamente essa entidade. 
+
 ### Usando anotações para definir informações das colunas da tabela a ser criada
 ```
     /**
