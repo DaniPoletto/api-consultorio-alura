@@ -135,6 +135,10 @@ public: true
 php bin\console doctrine:migrations:diff
 ```
 
+
+### Rodar todas as migrations
+```
+php bin\console doctrine:migrations:migrate
+```
+
 [Mais informações/resumos sobre doctrine](https://github.com/DaniPoletto/doctrine)
-
-
