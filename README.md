@@ -197,3 +197,14 @@ class MedicosController extends AbstractController
     ...
 ```
 
+### Retorna um repositório (de médicos)
+```
+$repositorioDeMedicos = $this->getDoctrine()->getRepository(Medico::class);
+```
+
+### Retorna todos os médicos com esse repositório
+```
+$medicoList = $repositorioDeMedicos->findAll();
+```
+
+
