@@ -225,4 +225,15 @@ $repositorioDeMedicos = $this->getDoctrine()->getRepository(Medico::class);
 $medicoList = $repositorioDeMedicos->findAll();
 ```
 
+### Recebendo parâmetros da rota
+É possivel receber como parâmetro do método parâmetros definidos na rota desde que tenham o mesmo nome. 
+
+```
+    /**
+     * @Route("/medicos/{id}", methods={"PUT"})
+     */
+    public function atualiza(int $id, Request $request) : Response
+    {
+```
+
 
