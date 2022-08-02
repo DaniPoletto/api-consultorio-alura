@@ -130,6 +130,22 @@ Inclua o código ao arquivo config/services.yaml
 public: true
 ```
 
+### Usando anotações para definir informações das colunas da tabela a ser criada
+```
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
+     public $id;
+```
+No código acima é informado que o atributo id é um campo do tipo identificador com valor gerado automaticamente e no formato inteiro.
+
+Para informar um formato texto (char, varchar, text) basta fazer da seguinte forma:
+```
+@ORM\Column(type="string")
+```
+
 ### Gerar migration verificando se há diferenças entre o banco e o que foi mapeado para atualizar o banco
 ```
 php bin\console doctrine:migrations:diff
@@ -140,5 +156,6 @@ php bin\console doctrine:migrations:diff
 ```
 php bin\console doctrine:migrations:migrate
 ```
+
 
 [Mais informações/resumos sobre doctrine](https://github.com/DaniPoletto/doctrine)
