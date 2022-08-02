@@ -33,6 +33,14 @@ Para informar os métodos permitidos por essa rota
      */
 ```
 
+Para passar parâmetros para essa rota
+```
+    /**
+     * @Route("/medicos/{id}", methods={"GET"})
+     */
+```
+Esses parâmetros são recuperados no Request.
+
 ### Para retornar em JSON
 ```
     /**
