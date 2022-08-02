@@ -130,6 +130,33 @@ Inclua o código ao arquivo config/services.yaml
 public: true
 ```
 
+### Criando um gerenciador de entidade
+Utilizando injeção de dependência é criado um gerenciador de entidade que irá fazer as operações necessárias no banco.
+
+A classe EntityManagerInterface necessita ser importada.
+```
+    /**
+     * @var EntityManagerInterface
+     */
+    private $entityManager;
+
+    public function __construct(EntityManagerInterface $entityManager)
+    {
+        $this->entityManager = $entityManager;
+    }
+```
+
+### Persist e Flush
+
+O método persist 'observa' a entidade que recebe como parametro até que seja utilizado o método flush para de fato persistir as alterações no banco. 
+
+As alterações são mapeadas em memória otimizando a performance da aplicação.
+
+```
+        $this->entityManager->persist($medico);
+        $this->entityManager->flush();
+```
+
 ### Usando anotações para definir informações das colunas da tabela a ser criada
 ```
     /**
@@ -159,3 +186,4 @@ php bin\console doctrine:migrations:migrate
 
 
 [Mais informações/resumos sobre doctrine](https://github.com/DaniPoletto/doctrine)
+
