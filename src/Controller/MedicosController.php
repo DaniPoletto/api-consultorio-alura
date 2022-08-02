@@ -62,6 +62,8 @@ class MedicosController extends AbstractController
 
         $medico = $repositorioDeMedicos->find($id);
 
-        return new JsonResponse($medico);
+        $codigoRetorno = is_null($medico) ? Response::HTTP_NO_CONTENT : 200;
+
+        return new JsonResponse($medico, $codigoRetorno);
     }
 }
