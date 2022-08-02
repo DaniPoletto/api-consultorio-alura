@@ -236,4 +236,9 @@ $medicoList = $repositorioDeMedicos->findAll();
     {
 ```
 
+### Delete
+```
+        $this->entityManager->remove($medico);
+        $this->entityManager->flush();
+```
 
