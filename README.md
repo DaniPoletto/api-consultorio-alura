@@ -242,3 +242,8 @@ $medicoList = $repositorioDeMedicos->findAll();
         $this->entityManager->flush();
 ```
 
+Ao deletar ou atualizar não é preciso retornar todos os dados pelo repositório. Para melhor performance use:
+```
+$medico = $this->entityManager->getReference(Medico::class, $id);
+```
+
