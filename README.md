@@ -52,6 +52,14 @@ Esses parâmetros são recuperados no Request.
     }
 ```
 
+Também é possivel passar um segundo parâmetro pro objeto JsonResponse com o status HTTP. Se esse parâmetro não é informado, automaticamente é enviado um status 200.
+
+Pela classe Response é possível obter status como, por exemplo, 204:
+
+```
+Response::HTTP_NO_CONTENT
+```
+
 ### Request e Response
 O método do controller recebe uma Requisição HTTP (Request) e uma resposta HTTP (Response) que são classes que devem ser importadas na classe do Controller.
 ```
