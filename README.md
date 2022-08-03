@@ -279,3 +279,18 @@ php bin/console doctrine:database:drop
 php bin\console make:controller
 ```
 
+### Retornar dados de propriedades privadas
+```
+class Especialidade implements JsonSerializable
+{
+        public function jsonSerialize()
+    {
+        return [
+            'id' => $this->getId(),
+            'descricao' => $this->getDescricao()
+        ];
+    }
+}
+```
+Ao implementar a classe JsonSerializable e o método jsonSerialize na classe de entidade Especialidade, toda resposta em Json utilizará esse método.
+
