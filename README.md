@@ -261,4 +261,10 @@ php bin\console list make
 ```
 php bin\console make:entity
 ```
+Após esse comando, o terminal irá perguntar pelo nome, tipo e tamanho dos atributos dessa entidade e irá gerar automaticamente os códigos.
+
+Para finalizar, crie e rode a migration.
+```
+php bin/console make:migration
+```
 
