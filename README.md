@@ -267,4 +267,4 @@ Para finalizar, crie e rode a migration.
 ```
 php bin/console make:migration
 ```
-
+Caso a entidade já exista, ao utilizar esse comando de criação de entidade, novos atributos podem ser adicionados.
