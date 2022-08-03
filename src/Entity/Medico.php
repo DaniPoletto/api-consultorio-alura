@@ -1,27 +1,28 @@
 <?php
 namespace App\Entity;
 
+use JsonSerializable;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity()
  */
-class Medico
+class Medico implements JsonSerializable
 {
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    public $id;
+    private $id;
     /**
      * @ORM\Column(type="integer")
      */
-    public $crm;
+    private $crm;
     /**
      * @ORM\Column(type="string")
      */
-    public $nome;
+    private $nome;
 
     /**
      * @ORM\ManyToOne(targetEntity=Especialidade::class)
@@ -39,5 +40,42 @@ class Medico
         $this->especialidade = $especialidade;
 
         return $this;
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getCrm(): ?int
+    {
+        return $this->crm;
+    }
+
+    public function setCrm(int $crm): self
+    {
+        $this->crm = $crm;
+        return $this;
+    }
+
+    public function getNome(): ?string
+    {
+        return $this->nome;
+    }
+
+    public function setNome(string $nome): self
+    {
+        $this->nome = $nome;
+        return $this;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'id' => $this->getId(),
+            'nome' => $this->getNome(),
+            'crm' => $this->getCrm(),
+            'especialidadeId' => $this->getEspecialidade()->getId()
+        ];
     }
 }
