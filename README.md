@@ -292,5 +292,5 @@ class Especialidade implements JsonSerializable
     }
 }
 ```
-Ao implementar a classe JsonSerializable e o método jsonSerialize na classe de entidade Especialidade, toda resposta em Json utilizará esse método.
+Ao implementar a classe JsonSerializable e o método jsonSerialize na classe de entidade Especialidade, o método será chamado ao chamar o metodo json_encode().
 
