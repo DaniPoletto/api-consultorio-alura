@@ -257,3 +257,8 @@ Listar tudo o que pode ser feito com maker
 php bin\console list make
 ```
 
+### Criar uma entidade com maker
+```
+php bin\console make:entity
+```
+
