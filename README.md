@@ -247,3 +247,8 @@ Ao deletar ou atualizar não é preciso retornar todos os dados pelo repositóri
 $medico = $this->entityManager->getReference(Medico::class, $id);
 ```
 
+### Intalar Plugin maker 
+```
+composer require maker
+```
+
