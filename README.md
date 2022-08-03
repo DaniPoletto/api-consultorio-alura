@@ -252,3 +252,8 @@ $medico = $this->entityManager->getReference(Medico::class, $id);
 composer require maker
 ```
 
+Listar tudo o que pode ser feito com maker
+```
+php bin\console list make
+```
+
