@@ -75,7 +75,8 @@ class Medico implements JsonSerializable
             'id' => $this->getId(),
             'nome' => $this->getNome(),
             'crm' => $this->getCrm(),
-            'especialidadeId' => $this->getEspecialidade()->getId()
+            'especialidadeId' => $this->getEspecialidade()->getId(),
+            'especialidadeDescricao' => $this->getEspecialidade()->getDescricao(),
         ];
     }
 }
