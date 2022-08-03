@@ -268,3 +268,14 @@ Para finalizar, crie e rode a migration.
 php bin/console make:migration
 ```
 Caso a entidade já exista, ao utilizar esse comando de criação de entidade, novos atributos podem ser adicionados.
+
+### Apagar o banco de dados
+```
+php bin/console doctrine:database:drop
+```
+
+### Criar controller
+```
+php bin\console make:controller
+```
+
