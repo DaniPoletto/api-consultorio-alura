@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Especialidade;
 use App\Helper\EspecialidadeFactory;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\EspecialidadeRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -23,12 +24,19 @@ class EspecialidadesController extends AbstractController
      */
     private $especialidadeFactory;
 
+    /**
+     * @var EspecialidadeRepository
+     */
+    private $especialidadeRepository;
+
     public function __construct(
         EntityManagerInterface $entityManager,
-        EspecialidadeFactory $especialidadeFactory
+        EspecialidadeFactory $especialidadeFactory,
+        EspecialidadeRepository $especialidadeRepository
     ) {
         $this->entityManager = $entityManager;
         $this->especialidadeFactory = $especialidadeFactory;
+        $this->especialidadeRepository = $especialidadeRepository;
     }
 
     /**
@@ -50,16 +58,14 @@ class EspecialidadesController extends AbstractController
      */
     public function buscarTodos() : Response
     {
-        $repositorioDeEspecialidades = $this->getDoctrine()->getRepository(Especialidade::class);
-
-        $especialidadeList = $repositorioDeEspecialidades->findAll();
+        $especialidadeList  = $this->especialidadeRepository->findAll();
 
         return new JsonResponse($especialidadeList);
     }
 
     public function buscaEspecialidade(int $id) 
     {
-        $especialidade = $this->getDoctrine()->getRepository(Especialidade::class)->find($id);
+        $especialidade = $this->especialidadeRepository->find($id);
         return $especialidade;
     }
 
