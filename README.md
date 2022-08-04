@@ -1,10 +1,30 @@
 # API Consultório Alura
-Projeto implementado durante curso de API com Symfony 5.4 e PHP 7.3.5
+Projeto implementado durante curso de API com [Symfony 5.4](https://symfony.com/doc/5.4/setup.html) e PHP 7.3.5. 
 
-[Documentação do Symfony](https://symfony.com/doc/5.4/setup.html)
+Consiste em uma api que relaciona médicos a especialidades. 
+
+## Rotas
+
+### Médicos
+| Rota | Método | Descrição | BODY PARAMS | 
+| --- | --- | --- | --- |
+| /medicos | POST | Cadastra um médico | <pre> {<br> "crm": 123456,<br> "nome": "Terceiro médico",<br> "especialidadeId": 2<br>} </pre> |
+| /medicos | GET | Retorna todos os médicos | - |
+| /medicos/{id} | GET | Retorna médico por id | - |
+| /medicos/{id} | PUT | Atualiza médico por id | <pre> {<br> "crm": 123456,<br> "nome": "Terceiro médico",<br> "especialidadeId": 2<br>} </pre> |
+| /medicos/{id} | DELETE | Remove médico por id | - |
+
+### Especialidades
+| Rota | Método | Descrição | BODY PARAMS | 
+| --- | --- | --- | --- |
+| /especialidades | POST | Cadastra uma especialidade |  <pre> {<br> "descricao": "Ginecologista" <br>} </pre> |
+| /especialidades | GET | Retorna todas as especialidades | - |
+| /especialidades/{id} | GET | Retorna especialidade por id | - |
+| /especialidades/{id} | PUT | Atualiza especialidade por id |  <pre> {<br> "descricao": "Ginecologista" <br>} </pre> |
+| /especialidades/{id} | DELETE | Remove especialidade por id | - |
 
 ### Para criar um projeto no symfony para api
-`` composer create-project symfony/skeleton:"^5.4" my_project_directory ``
+`` composer create-project symfony/skeleton:"^5.4" consultorio-alura ``
 
 ### Para inicializar o servidor
 `` php -S localhost:8080 -t public ``
@@ -61,7 +81,7 @@ Response::HTTP_NO_CONTENT
 ```
 
 ### Request e Response
-O método do controller recebe uma Requisição HTTP (Request) e uma resposta HTTP (Response) que são classes que devem ser importadas na classe do Controller.
+O método do controller recebe uma Requisição HTTP (Request) e retorna uma resposta HTTP (Response) que são classes que devem ser importadas na classe do Controller.
 ```
     /**
      * @Route("/ola")
@@ -95,7 +115,7 @@ Retornando uma resposta em Json:
 
 ### Para pegar parametros:
 
-- pega um parametro especifico da query string
+- pega um parametro especifico da query string (parâmetros da URL)
 ```
 $parametro = $request->query->get('parametro');
 ```
@@ -206,7 +226,7 @@ php bin\console doctrine:migrations:migrate
 [Mais informações/resumos sobre doctrine](https://github.com/DaniPoletto/doctrine)
 
 ### Repositórios
-Para utilizar repositórios é preciso fazer a classe de controller extender a classe AbstractController que é do próprio Symfony.
+Para utilizar repositórios é preciso fazer a classe de controller estender a classe AbstractController que é do próprio Symfony.
 ```
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -247,7 +267,7 @@ Ao deletar ou atualizar não é preciso retornar todos os dados pelo repositóri
 $medico = $this->entityManager->getReference(Medico::class, $id);
 ```
 
-### Intalar componente maker do Symfony
+### Instalar componente maker do Symfony
 ```
 composer require maker
 ```
@@ -267,6 +287,11 @@ Para finalizar, crie e rode a migration.
 ```
 php bin/console make:migration
 ```
+
+```
+php bin\console doctrine:migrations:migrate
+```
+
 Caso a entidade já exista, ao utilizar esse comando de criação de entidade, novos atributos podem ser adicionados.
 
 ### Apagar o banco de dados
