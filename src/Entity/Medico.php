@@ -5,7 +5,7 @@ use JsonSerializable;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass=MedicoRepository::class)
  */
 class Medico implements JsonSerializable
 {
