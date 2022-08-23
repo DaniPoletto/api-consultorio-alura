@@ -4,9 +4,9 @@ namespace App\Helper;
 
 use App\Entity\Especialidade;
 
-class EspecialidadeFactory
+class EspecialidadeFactory implements EntidadeFactory
 {
-    public function criarEspecialidade (string $json) : Especialidade
+    public function criarEntidade(string $json) : Especialidade
     {
         $dadoEmJson = json_decode($json);
 
