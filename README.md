@@ -23,6 +23,11 @@ Consiste em uma api que relaciona médicos a especialidades.
 | /especialidades/{id} | PUT | Atualiza especialidade por id |  <pre> {<br> "descricao": "Ginecologista" <br>} </pre> |
 | /especialidades/{id} | DELETE | Remove especialidade por id | - |
 
+É possível ordenar os dados, por exemplo:
+```
+http://localhost:8080/medicos?sort[crm]=ASC&sort[nome]=DESC
+```
+
 ### Para criar um projeto no symfony para api
 `` composer create-project symfony/skeleton:"^5.4" consultorio-alura ``
 
