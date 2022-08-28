@@ -33,6 +33,11 @@ Também é possível filtrar passando os parâmetros pela url:
 http://localhost:8080/medicos?crm=123456
 ```
 
+Utilize a páginação da seguinte forma:
+```
+http://localhost:8080/medicos?page=1&itensPorPagina=2
+```
+
 ### Para criar um projeto no symfony para api
 `` composer create-project symfony/skeleton:"^5.4" consultorio-alura ``
 
