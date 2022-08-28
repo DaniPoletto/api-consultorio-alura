@@ -28,6 +28,11 @@ Consiste em uma api que relaciona médicos a especialidades.
 http://localhost:8080/medicos?sort[crm]=ASC&sort[nome]=DESC
 ```
 
+Também é possível filtrar passando os parâmetros pela url:
+```
+http://localhost:8080/medicos?crm=123456
+```
+
 ### Para criar um projeto no symfony para api
 `` composer create-project symfony/skeleton:"^5.4" consultorio-alura ``
 
