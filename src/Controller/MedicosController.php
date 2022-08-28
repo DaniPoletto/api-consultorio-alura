@@ -8,6 +8,7 @@ use App\Helper\ExtratorDadosRequest;
 use App\Repository\MedicoRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class MedicosController extends BaseController
 {
@@ -52,7 +53,7 @@ class MedicosController extends BaseController
     /**
      * @Route("/especialidades/{especialidadeId}/medicos", methods={"GET"})
      */
-    public function buscaPorEspecialidade(int $especialidadeId) : Response
+    public function buscaPorEspecialidade(int $especialidadeId) : JsonResponse
     {
         $medicos = $this->repository->findBy([
             'especialidade' => $especialidadeId
