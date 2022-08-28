@@ -334,3 +334,31 @@ class Especialidade implements JsonSerializable
 ```
 Ao implementar a classe JsonSerializable e o método jsonSerialize na classe de entidade Especialidade, o método será chamado ao chamar o metodo json_encode().
 
+### Método findBy
+Recebe como primeiro parâmetro um filtro no formato array:
+```
+[
+    "crm" => "123456",
+    "nome" => "João"
+]
+```
+O segundo parâmetro é um array para ordenação:
+```
+[
+    "crm" => "ASC",
+    "nome" => "DESC"
+]
+```
+
+O terceiro e o qaurto são para páginação e correspondem a quantidade de itens por página e o offset que determina a partir de qual item deve trazer. 
+
+```
+        $EntityList = $this->repository->findBy(
+            $informacoesDeFiltro, 
+            $informacoesDeOrdenacao,
+            $itensPorPagina,
+            ($paginaAtual - 1) * $itensPorPagina
+        );
+ ```
+ 
+
