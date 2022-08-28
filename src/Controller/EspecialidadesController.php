@@ -36,8 +36,15 @@ class EspecialidadesController extends BaseController
      * @param Especialidade $entityExistente
      * @param Especialidade $entityEnviado
      */
-    public function atualizarEntidadeExistente($entityExistente, $entityEnviado)
+    public function atualizarEntidadeExistente($id, $entityEnviado)
     {
-        $entityExistente->setDescricao($entityEnviado->getDescricao()); 
+        /** @var Especialidade $entityExistente */
+        $entityExistente = $this->repository->find($id);
+        if (is_null($entityExistente)) {
+            throw new \InvalidArgumentException();
+        }
+        $entityExistente->setDescricao($entityEnviado->getDescricao());
+        
+        return $entityExistente; 
     }
 }

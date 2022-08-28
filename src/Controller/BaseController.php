@@ -116,17 +116,24 @@ abstract class BaseController extends AbstractController
         $corpoRequisicao = $request->getContent();
         $entityEnviado = $this->factory->criarEntidade($corpoRequisicao);
 
-        $entityExistente = $this->repository->find($id);
+        try {
+            $entityExistente = $this->atualizarEntidadeExistente($id, $entityEnviado);
+            $this->entityManager->flush(); 
 
-        if (is_null($entityExistente)) {
-            return new Response('', Response::HTTP_NOT_FOUND);
+            $fabrica = new ResponseFactory(
+                true,
+                $entityExistente,
+                Response::HTTP_OK
+            );
+            return $fabrica->getResponse();
+        } catch (\InvalidArgumentException $ex) {
+            $fabrica = new ResponseFactory(
+                false,
+                "Recurso não encontrado",
+                Response::HTTP_NOT_FOUND
+            );
+            return $fabrica->getResponse();
         }
-
-        $this->atualizarEntidadeExistente($entityExistente, $entityEnviado);
-
-        $this->entityManager->flush();
-
-        return new JsonResponse($entityExistente);
     }
 
     abstract public function atualizarEntidadeExistente(

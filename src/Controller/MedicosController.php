@@ -34,12 +34,19 @@ class MedicosController extends BaseController
      * @param Medico $entityExistente
      * @param Medico $entityEnviado
      */
-    public function atualizarEntidadeExistente($entityExistente, $entityEnviado)
+    public function atualizarEntidadeExistente($id, $entityEnviado)
     {
+        /** @var Medico $entityExistente */
+        $entityExistente = $this->repository->find($id);
+        if (is_null($entityExistente)) {
+            throw new \InvalidArgumentException();
+        }
         $entityExistente
             ->setCrm($entityEnviado->getCrm())
             ->setNome($entityEnviado->getNome())
             ->setEspecialidade($entityEnviado->getEspecialidade());
+            
+        return $entityExistente; 
     }
 
     /**
