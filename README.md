@@ -368,4 +368,49 @@ O terceiro e o qaurto são para páginação e correspondem a quantidade de iten
         );
  ```
  
+ ## Autenticação
+ 
+ ### Pacotes necessários
+ ```
+ composer require security
+ ```
+ 
+ ```
+ composer require firebase/php-jwt
+ ```
+
+### Criar um controller para usuário
+```
+php bin\console make:user
+```
+
+Criar uma migration
+```
+php bin\console make:migration
+```
+
+Rodar a migration
+```
+php bin\console doctrine:migrations:migrate
+```
+
+### Criar fixture (criar dados no banco)
+
+```
+composer require orm-fixtures
+```
+
+```
+php bin\console make:fixtures
+```
+
+### Gerar uma senha criptografada
+```
+php bin\console security:encode-pasword
+```
+
+### Rodar a fixture
+```
+php bin\console doctrine:fixtures:load
+```
 
