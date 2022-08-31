@@ -5,6 +5,13 @@ Consiste em uma api que relaciona médicos a especialidades.
 
 ## Rotas
 
+### Autenticação
+| Rota | Método | Descrição | BODY PARAMS | QUERY PARAMS |
+| --- | --- | --- | --- | --- |
+| /login | GET | Retorna token obrigatório em todas as outras requisições | <pre>{<br>"usuario": "usuario",<br>"senha": "teste"<br>}</pre> | - |
+
+O login e senha padrão são "usuario" e "teste". A autenticação é feita passando um Bearer Token como Authorization. 
+
 ### Médicos
 | Rota | Método | Descrição | BODY PARAMS | 
 | --- | --- | --- | --- |
