@@ -6,6 +6,7 @@ use App\Helper\MedicoFactory;
 use App\Controller\BaseController;
 use App\Helper\ExtratorDadosRequest;
 use App\Repository\MedicoRepository;
+use Psr\Cache\CacheItemPoolInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -21,13 +22,15 @@ class MedicosController extends BaseController
         MedicoFactory $medicoFactory,
         MedicoRepository $MedicosRepository,
         EntityManagerInterface $entityManager,
-        ExtratorDadosRequest $extratorDadosRequest
+        ExtratorDadosRequest $extratorDadosRequest,
+        CacheItemPoolInterface $cache
     ) {
         parent::__construct(
             $MedicosRepository, 
             $entityManager, 
             $medicoFactory,
-            $extratorDadosRequest
+            $extratorDadosRequest,
+            $cache
         );
     }
 
@@ -61,6 +64,11 @@ class MedicosController extends BaseController
 
         return new JsonResponse($medicos);
 
+    }
+
+    public function cachePrefix(): string
+    {
+        return 'medico_';
     }
 
 }

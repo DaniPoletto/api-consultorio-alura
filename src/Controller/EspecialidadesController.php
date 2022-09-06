@@ -6,6 +6,7 @@ use App\Entity\Especialidade;
 use App\Controller\BaseController;
 use App\Helper\EspecialidadeFactory;
 use App\Helper\ExtratorDadosRequest;
+use Psr\Cache\CacheItemPoolInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\EspecialidadeRepository;
 use Symfony\Component\Routing\Annotation\Route;
@@ -21,14 +22,16 @@ class EspecialidadesController extends BaseController
         EntityManagerInterface $entityManager,
         EspecialidadeFactory $especialidadeFactory,
         EspecialidadeRepository $especialidadeRepository,
-        ExtratorDadosRequest $extratorDadosRequest
+        ExtratorDadosRequest $extratorDadosRequest,
+        CacheItemPoolInterface $cache
     ) {
         parent::__construct
         (
             $especialidadeRepository, 
             $entityManager, 
             $especialidadeFactory,
-            $extratorDadosRequest
+            $extratorDadosRequest,
+            $cache
         );
     }
 
@@ -46,5 +49,10 @@ class EspecialidadesController extends BaseController
         $entityExistente->setDescricao($entityEnviado->getDescricao());
         
         return $entityExistente; 
+    }
+
+    public function cachePrefix(): string
+    {
+        return 'especialidade_';
     }
 }
