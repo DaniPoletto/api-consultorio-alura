@@ -420,3 +420,35 @@ Define um método e o nome do método bate com o evento que é lançado.
 
 ### Subscriber
 Sabe que evento está ouvindo porque é definido. 
+
+## Cache
+
+Classe utilizada
+```
+use Psr\Cache\CacheItemPoolInterface;
+```
+
+### Criando um cache
+```
+        $cacheItem = $this->cache->getItem(
+            $this->cachePrefix() . $entity->getId()
+        );
+
+        $cacheItem->set($entity);
+        $this->cache->save($cacheItem);
+```
+
+### Invalidando um cache
+```
+        $this->cache->deleteItem($this->cachePrefix() . $id);
+```
+
+### Atualizando um cache
+```
+            $cacheItem = $this->cache->getItem(
+                $this->cachePrefix() . $id
+            );
+    
+            $cacheItem->set($entityExistente);
+            $this->cache->save($cacheItem);
+```
