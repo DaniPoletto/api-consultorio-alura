@@ -414,3 +414,9 @@ php bin\console security:encode-pasword
 php bin\console doctrine:fixtures:load
 ```
 
+## Eventos
+### Listener
+Define um método e o nome do método bate com o evento que é lançado.
+
+### Subscriber
+Sabe que evento está ouvindo porque é definido. 
