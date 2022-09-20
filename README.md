@@ -453,13 +453,13 @@ use Psr\Cache\CacheItemPoolInterface;
             $this->cache->save($cacheItem);
 ```
 ## [Logs](https://symfony.com/doc/current/logging.html)
-12factor.net
+Metodologia de criação de software:
+https://12factor.net
 
 ### Monolog
+Monolog é uma biblioteca de logs muito usada.
 
-```
-Normalmente este tipo de operação de infraestrutura (gravar logs, enviar e-mails, etc) é feita de forma assíncrona, ou seja: Quando um evento do domínio acontecer, o mesmo é salvo em algum sistema de filas. Alguma rotina agendada (cron job) ou serviço (deamon) poderá acessar esta fila e realizar as operações depois que a requisição finalizar e o usuário já tiver recebido a resposta.
-```
+>Normalmente este tipo de operação de infraestrutura (gravar logs, enviar e-mails, etc) é feita de forma assíncrona, ou seja: Quando um evento do domínio acontecer, o mesmo é salvo em algum sistema de filas. Alguma rotina agendada (cron job) ou serviço (deamon) poderá acessar esta fila e realizar as operações depois que a requisição finalizar e o usuário já tiver recebido a resposta.
 
 ## [Testes](https://symfony.com/doc/5.4/testing.html#integration-tests)
 ```composer require --dev symfony/test-pack```
@@ -491,14 +491,17 @@ Normalmente este tipo de operação de infraestrutura (gravar logs, enviar e-mai
     </extensions>
 </phpunit>
 ```
-
+Mais sobre testes usando banco de dados:
 https://symfony.com/doc/current/testing/database.html
-https://symfony.com/doc/2.8/testing.html#the-crawler
 
 ### Testes com seletores
 ```composer require symfony/css-selector```
 
+Mais sobre testes com seletores:
+https://symfony.com/doc/2.8/testing.html#the-crawler
+
 ## [Twig](https://twig.symfony.com/)
+Twig é uma template engine para PHP
 
 ```composer require twig```
 
