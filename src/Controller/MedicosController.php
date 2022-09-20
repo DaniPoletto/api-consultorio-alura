@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Entity\Medico;
+use Psr\Log\LoggerInterface;
 use App\Helper\MedicoFactory;
 use App\Controller\BaseController;
 use App\Helper\ExtratorDadosRequest;
@@ -23,14 +24,16 @@ class MedicosController extends BaseController
         MedicoRepository $MedicosRepository,
         EntityManagerInterface $entityManager,
         ExtratorDadosRequest $extratorDadosRequest,
-        CacheItemPoolInterface $cache
+        CacheItemPoolInterface $cache,
+        LoggerInterface $logger
     ) {
         parent::__construct(
             $MedicosRepository, 
             $entityManager, 
             $medicoFactory,
             $extratorDadosRequest,
-            $cache
+            $cache,
+            $logger
         );
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Psr\Log\LoggerInterface;
 use App\Entity\Especialidade;
 use App\Helper\EntidadeFactory;
 use App\Helper\ResponseFactory;
@@ -41,18 +42,25 @@ abstract class BaseController extends AbstractController
      */
     protected $cache;
 
+    /**
+     * @var LoggerInterface
+     */
+    protected $logger;
+
     public function __construct(
         ObjectRepository $repository,
         EntityManagerInterface $entityManager,
         EntidadeFactory $factory,
         ExtratorDadosRequest $extratorDadosRequest,
-        CacheItemPoolInterface $cache
+        CacheItemPoolInterface $cache,
+        LoggerInterface $logger
     ) {
         $this->repository = $repository;
         $this->entityManager = $entityManager;
         $this->factory = $factory;
         $this->extratorDadosRequest = $extratorDadosRequest;
         $this->cache = $cache;
+        $this->logger = $logger;
     }
     
     public function buscarTodos(Request $request) : Response
@@ -127,7 +135,13 @@ abstract class BaseController extends AbstractController
         $cacheItem->set($entity);
         $this->cache->save($cacheItem);
 
-        return new JsonResponse($entity);
+        $this->logger->notice('Novo registro de {entidade} adicionado com id {id}',
+        [
+            'entidade' => get_class($entity),
+            'id' => $entity->getId(),
+        ]);
+
+        return new JsonResponse($entity, Response::HTTP_CREATED);
     }
 
     public function atualiza(int $id, Request $request) : Response

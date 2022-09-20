@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Psr\Log\LoggerInterface;
 use App\Entity\Especialidade;
 use App\Controller\BaseController;
 use App\Helper\EspecialidadeFactory;
@@ -23,7 +24,8 @@ class EspecialidadesController extends BaseController
         EspecialidadeFactory $especialidadeFactory,
         EspecialidadeRepository $especialidadeRepository,
         ExtratorDadosRequest $extratorDadosRequest,
-        CacheItemPoolInterface $cache
+        CacheItemPoolInterface $cache,
+        LoggerInterface $logger
     ) {
         parent::__construct
         (
@@ -31,7 +33,8 @@ class EspecialidadesController extends BaseController
             $entityManager, 
             $especialidadeFactory,
             $extratorDadosRequest,
-            $cache
+            $cache,
+            $logger
         );
     }
 
@@ -54,5 +57,16 @@ class EspecialidadesController extends BaseController
     public function cachePrefix(): string
     {
         return 'especialidade_';
+    }
+
+    /**
+    * @Route("especialidades_html")
+    */
+    public function especialidadesEmHTML()
+    {
+        $especialidades = $this->repository->findAll();
+        return $this->render('especialidades.html.twig', [
+            'especialidades' => $especialidades
+        ]);
     }
 }

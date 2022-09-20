@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h1>Especialidades</h1>
+
+<ul class="especialidade">
+{% for especialidade in especialidades %}
+    <li class="especialidade">{{ especialidade.descricao }}</li>
+{% endfor %}
+</ul>
+{% endblock %}
