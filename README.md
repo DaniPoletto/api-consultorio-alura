@@ -452,3 +452,57 @@ use Psr\Cache\CacheItemPoolInterface;
             $cacheItem->set($entityExistente);
             $this->cache->save($cacheItem);
 ```
+## [Logs](https://symfony.com/doc/current/logging.html)
+12factor.net
+
+### Monolog
+
+```
+Normalmente este tipo de operação de infraestrutura (gravar logs, enviar e-mails, etc) é feita de forma assíncrona, ou seja: Quando um evento do domínio acontecer, o mesmo é salvo em algum sistema de filas. Alguma rotina agendada (cron job) ou serviço (deamon) poderá acessar esta fila e realizar as operações depois que a requisição finalizar e o usuário já tiver recebido a resposta.
+```
+
+## [Testes](https://symfony.com/doc/5.4/testing.html#integration-tests)
+```composer require --dev symfony/test-pack```
+
+### Rodando os testes
+```php bin\phpunit```
+
+### Criar banco de dados no ambiente de teste
+```php bin\console -e test doctrine:database:create```
+
+### Rodar migrations
+```php bin\console -e test doctrine:migrations:migrate```
+
+### Criar esquema pra mudanaça de banco
+```php bin\console -e test doctrine:schema:create```
+
+### Rodar fixtures
+```php bin\console -e test doctrine:fixtures:load```
+
+```composer require --dev dama/doctrine-test-bundle```
+
+```
+<!-- phpunit.xml.dist -->
+<phpunit>
+    <!-- ... -->
+
+    <extensions>
+        <extension class="DAMA\DoctrineTestBundle\PHPUnit\PHPUnitExtension"/>
+    </extensions>
+</phpunit>
+```
+
+https://symfony.com/doc/current/testing/database.html
+https://symfony.com/doc/2.8/testing.html#the-crawler
+
+### Testes com seletores
+```composer require symfony/css-selector```
+
+## [Twig](https://twig.symfony.com/)
+
+```composer require twig```
+
+### Desativar autenticação pra rota
+em config>packages>security.yaml trocar login do firewalls > main > pattern pra (especialidades_html|login)
+
+
