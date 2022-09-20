@@ -1,4 +1,10 @@
-# API Consultório Alura
+<h1 align="center"> API Consultório Alura </h1>
+
+<p align="center">
+<img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" />
+<img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" />
+</p>
+
 Projeto implementado durante curso de API com [Symfony 5.4](https://symfony.com/doc/5.4/setup.html) e PHP 7.3.5. 
 
 Consiste em uma api que relaciona médicos a especialidades. 
