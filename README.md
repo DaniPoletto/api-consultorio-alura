@@ -357,7 +357,7 @@ O segundo parâmetro é um array para ordenação:
 ]
 ```
 
-O terceiro e o qaurto são para páginação e correspondem a quantidade de itens por página e o offset que determina a partir de qual item deve trazer. 
+O terceiro e o quarto são para páginação e correspondem a quantidade de itens por página e o offset que determina a partir de qual item deve trazer. 
 
 ```
         $EntityList = $this->repository->findBy(
