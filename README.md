@@ -479,6 +479,7 @@ Monolog é uma biblioteca de logs muito usada.
 ### Rodar fixtures
 ```php bin\console -e test doctrine:fixtures:load```
 
+### Resetando o banco automaticamente após os testes
 ```composer require --dev dama/doctrine-test-bundle```
 
 ```
